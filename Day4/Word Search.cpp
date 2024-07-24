@@ -6,11 +6,10 @@ public:
     // DFS helper function to check if the word can be formed starting from board[i][j]
     bool solve(vector<vector<char>>& board, string word, int i, int j, int c) {
         if(c == word.size()) return true;
-        if(i < 0 || j < 0 ||
-            i >= board.size() || j >= board[0].size() ||
-            board[i][j] != word[c] || 
-            board[i][j] == '#') 
-            return false;
+        if(i < 0 || j < 0 || i >= board.size() || j >= board[0].size() ||   // coditions for checking out of bounds indexes
+            board[i][j] != word[c] || // condition for checking the unequality of character in string
+            board[i][j] == '#')   // condition for checking if the character is already explored
+            return false;  
 
         // Marking the current cell as visited by setting it to '#'
         char temp = board[i][j];
